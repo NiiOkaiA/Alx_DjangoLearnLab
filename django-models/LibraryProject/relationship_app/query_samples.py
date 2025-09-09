@@ -1,5 +1,5 @@
 author_query= Book.objects.filter(author='me')
 
-books=Book.objects.all()
+library_books=Library.objects.get(name='katyk',books.all())
 
 librarian=Librarian.objects.all()
