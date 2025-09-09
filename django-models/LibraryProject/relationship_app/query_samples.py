@@ -3,4 +3,4 @@ author_query= Author.objects.filter(author=author)
 
 library_books= Library.objects.get(name=library_name) , books.all())
 
-librarian=Librarian.objects.all()
+librarian=Librarian.objects.get(library=lib)
