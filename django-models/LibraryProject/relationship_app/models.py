@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 
-class Author(models.Model):
+class Author(models.Model):    
     name=models.CharField(max_length=100)
-    return self.name
+    #return self.name
 
 class Book(models.Model):
     title=models.CharField(max_length=100)
