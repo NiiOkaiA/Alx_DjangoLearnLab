@@ -18,3 +18,9 @@ class LibraryDetailView(DetailView):
 
    # def get_context_data(self, **kwargs):
    # context= super.get_context_data(**kwargs)
+
+
+class Signup(CreateView):
+    form_class =UserCreationForm
+    success_url= reverse_lazy('login')
+    template_name= 'registration/signup.html'
