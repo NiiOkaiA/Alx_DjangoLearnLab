@@ -6,5 +6,5 @@ urlpatterns= [ path(' ', list_books, name='book_list'),
                path(' ',LibraryDetailView.as_view(), name='LibraryDetailView'),
                path('accounts/', include('django.contrib.auth.urls')),
                path('login/',LoginView.as_view(template_name='login.html'),
-               path('logout'/ LogoutView.as_view(),name= 'logout'),
+               path('logout'/ LogoutView.as_view(template_name='logout.html'),name= 'logout'),
               ]
