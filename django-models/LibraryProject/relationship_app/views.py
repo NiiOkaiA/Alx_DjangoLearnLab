@@ -31,11 +31,13 @@ class Signup(CreateView):
     success_url= reverse_lazy('login')
     template_name= 'relationship_app/register.html'
 
-@user_passes_test(lambda u: u.role='Admin'):
+
+    
+@user_passes_test(lambda u: u.role=='Admin'):
      def admin_view(request):
          pass
          
-@user_passes_test(lambda u: u.role='Librarian'):
+@user_passes_test(lambda u: u.role=='Librarian'):
      def librarian_view(request):
          pass
 
