@@ -17,3 +17,7 @@ class Library(models.Model):
 class Librarian(models.Model):
     name=models.CharField(max_length=100)
     library=models.OneToOneField(Library, on_delete=models.CASCADE, related_name='librarian')
+
+
+class UserProfile(models.Model):
+    role=models.Charfield(max_length=100)
