@@ -20,4 +20,8 @@ class Librarian(models.Model):
 
 
 class UserProfile(models.Model):
+    user=models.OneToOneField(User on_delete=models.CASCADE)
     role=models.Charfield(max_length=100)
+
+# Admin
+# Member
