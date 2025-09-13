@@ -44,7 +44,7 @@ def admin_view(request):
 '''
 
 def is_admin(user):
-    return user.is_staff
+    return hasattr(user,"UserProfile") and user.UserProfile.role=='Admin'
 
 @user_passes_test(is_admin)
 def admin_view(request):
