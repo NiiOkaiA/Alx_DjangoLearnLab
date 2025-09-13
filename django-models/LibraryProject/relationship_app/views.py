@@ -7,7 +7,7 @@ from .models import Book
 from .models import Library, UserProfile
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test,login_required
 
 
 
@@ -32,7 +32,7 @@ class Signup(CreateView):
     template_name= 'relationship_app/register.html'
 
 
-   
+@login_required   
 @user_passes_test(lambda u: u.role=='Admin')
 def admin_view (request):
     report=UserProfile.objects.all()
@@ -47,7 +47,7 @@ def admin_view(request):
     report=UserProfile.objects.all()
     return render(request, 'admin_view.html',{'reports':reports})
 '''         
-         
+@login_required         
 @user_passes_test(lambda u: u.role=='Librarian')
 def librarian_view(request):
          pass
