@@ -8,7 +8,7 @@ from .models import Library, UserProfile
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import user_passes_test,login_required
-
+from django.db.models.signals import post_save
 
 
 # Create your views here.
@@ -55,4 +55,9 @@ def admin_view(request):
 @user_passes_test(lambda u: u.role=='Librarian')
 def librarian_view(request):
          pass
-
+'''
+@receiver (post_save, sender=User)
+def create_UserProfile(sender, instance,created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+'''
