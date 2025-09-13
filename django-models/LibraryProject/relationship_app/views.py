@@ -44,12 +44,11 @@ def admin_view(request):
 '''
 
 def is_admin(user):
-    return hasattr(user,"UserProfile") and user.UserProfile.role=='Admin'
+    return user.is_authenticated hasattr(user,"userprofile") and user.userprofile.role=='Admin'
 
 @user_passes_test(is_admin)
 def admin_view(request):
-    report=UserProfile.objects.all()
-    return render(request, 'admin_view.html',{'reports':reports})
+    return render(request, 'admin_view.html')
 
 @login_required         
 @user_passes_test(lambda u: u.role=='Librarian')
