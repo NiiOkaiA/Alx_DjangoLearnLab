@@ -50,7 +50,7 @@ def is_admin(user):
 def admin_view(request):
     return render(request, 'admin_view.html')
 
-@login_required         
+#@login_required         
 @user_passes_test(lambda u: u.role=='Librarian')
 def librarian_view(request):
          pass
