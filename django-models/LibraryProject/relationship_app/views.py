@@ -55,9 +55,9 @@ def admin_view(request):
 @user_passes_test(lambda u: u.role=='Librarian')
 def librarian_view(request):
          pass
-'''
+
 @receiver (post_save, sender=User)
 def create_UserProfile(sender, instance,created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
-'''
+       UserProfile.objects.create(user=instance)
+
