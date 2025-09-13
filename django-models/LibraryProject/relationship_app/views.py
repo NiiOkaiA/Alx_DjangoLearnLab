@@ -33,14 +33,14 @@ class Signup(CreateView):
 
 
     
-@user_passes_test(lambda u: u.role=='Admin'):
+@user_passes_test(lambda u: u.role=='Admin')
 def admin_view(request):
-    report=Report.objects.all()
-    return render(request, 'admin_view.html',{'reports':reports}
+    report=UserProfile.objects.all()
+    return render(request, 'admin_view.html',{'reports':reports})
 
          
          
-@user_passes_test(lambda u: u.role=='Librarian'):
+@user_passes_test(lambda u: u.role=='Librarian')
 def librarian_view(request):
          pass
 
