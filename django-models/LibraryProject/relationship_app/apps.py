@@ -5,7 +5,7 @@ class RelationshipAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'relationship_app'
 
-class UsersConfig(Appconfig):
+class UsersConfig(AppConfig):
     name= 'relationship_app'
 
     

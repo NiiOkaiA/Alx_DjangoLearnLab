@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-REQUIRED_FIELDS  =[
+ROLE_CHOICES  =[
     ('admin','Admin'),
     ('librarian','Librarian'),
-    ('member','Member'
+    ('member','Member')
     ]
 
 
