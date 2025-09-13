@@ -51,10 +51,15 @@ def is_admin(user):
 def admin_view(request):
     return render(request, 'relationship_app/admin_view.html')
 
-#@login_required         
+@login_required         
 @user_passes_test(lambda u: u.role=='Librarian')
 def librarian_view(request):
-         pass
+    return render(request, 'relationship_app/librarian_view.html')
+
+@user_passes_test(lambda u: u.role=='Member')
+def member_view(request):
+    return render(request, 'relationship_app/member_view.html')
+
 '''
 @receiver (post_save, sender=User)
 def create_UserProfile(sender, instance,created, **kwargs):
