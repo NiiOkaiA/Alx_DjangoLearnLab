@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import list_books,LibraryDetailView
+from .views import list_books,LibraryDetailView,admin_view
 from django.contrib.auth.views import LoginView,LogoutView
 
 urlpatterns= [ path(' ', list_books, name='book_list'),
@@ -8,7 +8,7 @@ urlpatterns= [ path(' ', list_books, name='book_list'),
                path('login/',LoginView.as_view(template_name='login.html')),
                path('logout/',LogoutView.as_view(template_name='logout.html')),
               #      ,name= 'logout'),
-               path('admin_view/',admin_view, name='ad_view')
+               path("admin_view/",admin_view, name='ad_view')
               ]
 
 

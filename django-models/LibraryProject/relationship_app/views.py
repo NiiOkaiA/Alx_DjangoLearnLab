@@ -32,11 +32,15 @@ class Signup(CreateView):
     template_name= 'relationship_app/register.html'
 
 
-@login_required   
+@login_required
 @user_passes_test(lambda u: u.role=='Admin')
-def admin_view (request):
+def admin_view(request):
     report=UserProfile.objects.all()
-    return render(request, 'admin_view.html',{'reports':reports})
+    return render(request, 'admin_view.html')
+
+
+#    report=UserProfile.objects.all()
+#    return render(request, 'admin_view.html',{'reports':reports})
 
 '''
 def is_admin(user):
