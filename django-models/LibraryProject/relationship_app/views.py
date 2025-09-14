@@ -7,11 +7,14 @@ from .models import Book
 from .models import Library, UserProfile
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import user_passes_test,login_required
+from django.contrib.auth.decorators import user_passes_test,login_required,permission_required
 from django.db.models.signals import post_save
 
 
 # Create your views here.
+
+
+
 
 def list_books(request):
     books=Book.objects.all()
@@ -65,10 +68,20 @@ def librarian_view(request):
 def member_view(request):
     return render(request, 'relationship_app/member_view.html')
 
-'''
-@receiver (post_save, sender=User)
-def create_UserProfile(sender, instance,created, **kwargs):
-    if created:
-       UserProfile.objects.create(user=instance)
 
-'''
+
+
+@permission_required('relationship_app.can_add', raise_exception=True)
+def can_add_book(request):
+    Book.title="Peter Pan"
+
+
+@permission_required('relationship_app.can_change', raise_exception=True)
+def can_change_book(request):
+    return Book.objects.update()
+
+@permission_required('relationship_app.can_delete', raise_exception=True)
+def can_delete__book(request):
+    return Book.objects.delete()
+
+    
