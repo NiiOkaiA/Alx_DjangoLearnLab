@@ -71,16 +71,16 @@ def member_view(request):
 
 
 
-@permission_required('relationship_app.can_add', raise_exception=True)
+@permission_required('relationship_app.can_add_book', raise_exception=True)
 def can_add_book(request):
     Book.title="Peter Pan"
 
 
-@permission_required('relationship_app.can_change', raise_exception=True)
+@permission_required('relationship_app.can_change_book', raise_exception=True)
 def can_change_book(request):
     return Book.objects.update()
 
-@permission_required('relationship_app.can_delete', raise_exception=True)
+@permission_required('relationship_app.can_delete_book', raise_exception=True)
 def can_delete__book(request):
     return Book.objects.delete()
 
