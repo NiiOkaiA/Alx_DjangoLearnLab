@@ -60,6 +60,7 @@ def admin_view(request):
 def librarian_view(request):
     return render(request, 'relationship_app/librarian_view.html')
 
+@login_required
 @user_passes_test(lambda u: u.role=='Member')
 def member_view(request):
     return render(request, 'relationship_app/member_view.html')
