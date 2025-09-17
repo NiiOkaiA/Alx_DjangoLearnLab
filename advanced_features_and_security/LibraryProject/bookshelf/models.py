@@ -12,3 +12,16 @@ class CustomUser(AbstractUser):
     profile_photo=models.ImageField()
 
     objects=CustomUserManager()
+
+
+
+class CustomUserManager(BaseUserManager):
+    def create_user(self,date_of_birth,profile_photo):        
+         user=self.model(date_of_birth=date_of_birth,
+                    profile_photo=profile_photo)
+         user.set_password('rama')
+         user.save(using=self._db)
+         return user
+
+    def create_superuser(self,date_of_birth,profile_photo):
+         return self.create_user(date_of_birth,profile_photo)
