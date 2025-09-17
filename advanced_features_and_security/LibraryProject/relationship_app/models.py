@@ -60,7 +60,7 @@ def create_UserProfile(sender, instance,created, **kwargs):
 
 
 
-def ExtUser(AbstractUser):
+class CustomUser(AbstractUser):
     date_of_birth=models.DateField()
     profile_photo=models.ImageField()
 
