@@ -8,3 +8,15 @@ class BookAdmin(admin.ModelAdmin):
     search_fields=('title','author')
 
 admin.site.register(Book,BookAdmin)
+
+
+
+class CustomUserAdmin(UserAdmin):
+    add_form=CustomUserCreationFormm
+    form=CustomUserChangeForm
+    model=ExtUser
+
+    list_display=('date_of_birth','profile_photo')
+    list_filter=('date_of_birth','profile_photo')
+
+admin.site.register(CustomUser,CustomUserAdmin)
