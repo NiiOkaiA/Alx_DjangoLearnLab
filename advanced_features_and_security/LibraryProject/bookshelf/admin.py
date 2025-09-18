@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import Book
 # Register your models here.
 
@@ -12,7 +13,7 @@ admin.site.register(Book,BookAdmin)
 
 
 class CustomUserAdmin(UserAdmin):
-    add_form=CustomUserCreationFormm
+    add_form=CustomUserCreationForm
     form=CustomUserChangeForm
     model=ExtUser
 

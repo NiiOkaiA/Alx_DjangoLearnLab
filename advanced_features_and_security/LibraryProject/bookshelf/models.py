@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User,AbstractUser
+from django.contrib.auth.base_user import BaseUserManager
 
 # Create your models here.
 class Book(models.Model):
@@ -6,13 +8,15 @@ class Book(models.Model):
     author=models.CharField(max_length=100)
     publication_year=models.IntegerField()
 
+class Author(models.Model):
+    name=models.CharField(max_length=100)
 
-class CustomUser(AbstractUser):
+'''class CustomUser(AbstractUser):
     date_of_birth=models.DateField()
     profile_photo=models.ImageField()
 
     objects=CustomUserManager()
-
+'''
 
 
 class CustomUserManager(BaseUserManager):
@@ -25,3 +29,24 @@ class CustomUserManager(BaseUserManager):
 
     def create_superuser(self,date_of_birth,profile_photo):
          return self.create_user(date_of_birth,profile_photo)
+
+
+
+class CustomUser(AbstractUser):
+    date_of_birth=models.DateField()
+    profile_photo=models.ImageField()
+    
+    objects=CustomUserManager()
+
+
+class Book(models.Model):
+    title=models.CharField(max_length=100)
+    author=models.ForeignKey(Author, on_delete=models.CASCADE,related_name='books')
+
+    class Meta:
+        permissions=[
+            ("can_create",  "can_create"),
+            ("can_view","can_view"),
+            ("can_delete","can_delete"),
+            ("can_edit", "can_edit")
+            ]
