@@ -26,3 +26,7 @@ Admin.permissions.add(create_perm,delete_perm)
 @permission_required('bookshelf.can_edit',raise_exception=True)
 def can_edit_book(request):
     return Book.objects.update()
+
+@permission_required('bookshelf.can_view',raise_exception=True)
+def can_view_book(request):
+    return Book.book_list
