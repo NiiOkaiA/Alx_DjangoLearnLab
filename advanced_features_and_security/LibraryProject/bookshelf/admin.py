@@ -19,4 +19,4 @@ class CustomUserAdmin(UserAdmin):
     list_display=('date_of_birth','profile_photo')
     list_filter=('date_of_birth','profile_photo')
 
-admin.site.register(CustomUser,CustomUserAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)
