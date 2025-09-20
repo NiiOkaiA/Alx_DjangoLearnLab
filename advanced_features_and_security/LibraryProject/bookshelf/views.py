@@ -3,6 +3,7 @@ from django.contrib.auth.models import Group,Permission
 from django.contrib.contenttypes.models import ContentType
 from .models import Book
 from django.contrib.auth.decorators import permission_required
+from .forms import ExampleForm
 # Create your views here.
 
 Editors,created=Group.objects.get_or_create(name='Editors')
