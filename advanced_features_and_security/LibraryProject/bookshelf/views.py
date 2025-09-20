@@ -30,3 +30,9 @@ def can_edit_book(request):
 @permission_required('bookshelf.can_view',raise_exception=True)
 def can_view_book(request):
     return Book.book_list
+
+
+def list_books(request):
+    books=Book.objects.all()
+    context = {'book_list':books}
+    return render(request, 'relationship_app/list_books.html', context)

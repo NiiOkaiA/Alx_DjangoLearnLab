@@ -42,7 +42,8 @@ class CustomUser(AbstractUser):
 class Book(models.Model):
     title=models.CharField(max_length=100)
     author=models.ForeignKey(Author, on_delete=models.CASCADE,related_name='books')
-
+    book_list=Book.objects.all()
+    
     class Meta:
         permissions=[
             ("can_create",  "can_create"),
