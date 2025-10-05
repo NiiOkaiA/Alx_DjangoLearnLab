@@ -13,7 +13,7 @@ from rest_framework import filters
 class ListView(generics.ListAPIView):
     queryset=Book.objects.all()
     serializer_class=BookSerializer
-    filter_backends = [filters.SearchFilter]
+    filter_backends = [filters.OrderingFilter]
     search_fields=['title','publication_year','author']
 
 
