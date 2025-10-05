@@ -3,7 +3,7 @@ from .models import Book
 from rest_framework import generics
 # Create your views here.
 
-class Listview(generics.ListAPIView):
+class Listview(generics.ListView):
     queryset=Book.objects.all()
     serializer_class=BookSerializer
 
