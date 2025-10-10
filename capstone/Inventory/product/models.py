@@ -27,6 +27,6 @@ class Product(models.Model):
     Quantity=models.IntegerField()
     Category_Id=models.ForeignKey(Category,on_delete=models.CASCADE,related_name='category')
     Supplier_Id=models.ForeignKey(Supplier,on_delete=models.CASCADE,related_name='supplier')
-    Warehouse_Id=models.ForeignKey(Warehouse,on_delete=models.CASCADE,related_name='warehouse',default=1)
+    Warehouse_Id=models.ForeignKey(Warehouse,on_delete=models.CASCADE,related_name='warehouse')
 
 
