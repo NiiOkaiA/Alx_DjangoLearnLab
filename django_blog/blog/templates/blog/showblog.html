@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ showblog.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ showblog.title }}</h1>
+  <p>{{ showblog.body }}</p>
+  <p>Author: {{ showblog.author.username }}</p>
+  <p>Published: {{ showblog.created_at }}</p>
+{% endblock %}
