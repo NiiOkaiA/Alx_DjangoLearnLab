@@ -11,6 +11,6 @@ urlpatterns=[
     path("/post/",listblogs.as_view(),name='listblog')
     path('post/<int:pk>/',showblog.as_view,name='showblog')
     path('post/new/',createblog.as_view,name='createblog',)
-    path('post/<int:pk>/edit',updateblog.as_view,name='updateblog')
-    path)('post/<int:pk>/delete',deleteblog.as_view,name='deleteblog')
+    path('post/<int:pk>/edit/',updateblog.as_view,name='updateblog')
+    path)('post/<int:pk>/delete/',deleteblog.as_view,name='deleteblog')
 ]
