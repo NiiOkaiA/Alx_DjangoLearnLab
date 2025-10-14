@@ -35,7 +35,7 @@ class showblog(generics.DetailView):
     def get_queryset(self)
       return Post.objects.get(title=self.kwargs['title'])
 
-class createblog(generics.CreateAPIView):
+class createblog(generics.CreateView):
     model=Posts
     queryset=Post.objects.all()
 
