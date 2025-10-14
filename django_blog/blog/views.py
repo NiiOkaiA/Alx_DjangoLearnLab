@@ -3,7 +3,12 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUser
 from rest_framework import generics
 from .models import Post
-from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+from django.urls import reverse_lazy
+#from django.views.generic.update import UpdateView
+#from django.views.generic.delete import DeleteView
 
 
 # Create your views here.
@@ -26,12 +31,12 @@ def profileup(request):
    # queryset=Post.objects.all()
 
 
-class listblogs(generics.Listview):
+class listblogs(ListView):
     model=Post
     template_name='blog/listblogs.html'
     context_object_name='listblog'
 
-class showblog(generics.DetailView):
+class showblog(DetailView):
     model=Post
     template_name='blog/showblog.html'
     context_object_name='showblog'
@@ -39,7 +44,7 @@ class showblog(generics.DetailView):
     def get_queryset(self)
       return Post.objects.get(title=self.kwargs['title'])'''
 
-class createblog(generics.CreateView):
+class createblog(CreateView):
     model=Post
     fields=['title','body']
     template_name='blog/createblog.html'
@@ -47,14 +52,14 @@ class createblog(generics.CreateView):
     
     #queryset=Post.objects.all()
 
-class updateblog(generics.UpdateView):
+class updateblog(UpdateView):
     model=Post
     template_name='blog/updateblog.html'
     success_url='/posts/'
     
    #queryset=post.objects.all()
 
-class deleteblog(generics.DeleteView):
+class deleteblog(DeleteView):
     model=Post
     template_name='blog/deleteblog.html'
     success_url=reverse_lazy('posts')
