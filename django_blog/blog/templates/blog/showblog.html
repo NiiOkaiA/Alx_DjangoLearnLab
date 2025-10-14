@@ -4,7 +4,6 @@
 
 {% block content %}
   <h1>{{ showblog.title }}</h1>
-  <p>{{ showblog.body }}</p>
-  <p>Author: {{ showblog.author.username }}</p>
-  <p>Published: {{ showblog.created_at }}</p>
+  <p>{{ showblog.content|truncatewords|30 }}</p>
+  <p>Published: {{ showblog.published_date }}</p>
 {% endblock %}
