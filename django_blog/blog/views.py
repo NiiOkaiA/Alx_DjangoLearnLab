@@ -46,9 +46,20 @@ class showblog(DetailView):
 
 class createblog(CreateView):
     model=Post
-    fields=['title','content']
+    form_class = CustomUser
     template_name='blog/createblog.html'
     success_url='/posts/'
+
+    
+    def form_valid(self,form):
+        form.instance.author=self.request.user
+
+        return super().form_valid(form)
+
+    
+    #fields=['title','content']
+   
+    
     
     #queryset=Post.objects.all()
 
