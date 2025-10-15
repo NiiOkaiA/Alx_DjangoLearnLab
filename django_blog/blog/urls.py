@@ -9,8 +9,8 @@ urlpatterns=[
     path("login/",LoginView.as_view(template_name='blog/login.html'),name="login"),
     path("profile/",profileup,name="profileupdate"),
     path("post/",listblogs.as_view(),name='listblog'),
-    path('post/<int:pk>/',showblog.as_view,name='showblog'),
-    path('post/new/',createblog.as_view,name='createblog'),
-    path('post/<int:pk>/update/',updateblog.as_view,name='updateblog'),
-    path('post/<int:pk>/delete/',deleteblog.as_view,name='deleteblog')
+    path('post/<int:pk>/',showblog.as_view(),name='showblog'),
+    path('post/new/',createblog.as_view(),name='createblog'),
+    path('post/<int:pk>/update/',updateblog.as_view(),name='updateblog'),
+    path('post/<int:pk>/delete/',deleteblog.as_view(),name='deleteblog')
 ]

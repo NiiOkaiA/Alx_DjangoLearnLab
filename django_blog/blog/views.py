@@ -46,7 +46,7 @@ class showblog(DetailView):
 
 class createblog(CreateView):
     model=Post
-    fields=['title','body']
+    fields=['title','content']
     template_name='blog/createblog.html'
     success_url='/posts/'
     
