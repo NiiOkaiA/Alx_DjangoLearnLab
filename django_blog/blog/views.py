@@ -33,12 +33,12 @@ def profileup(request):
 
 class listblogs(ListView):
     model=Post
-    template_name='blog/listblogs.html'
+    template_name='blog/list.html'
     context_object_name='listblog'
 
 class showblog(DetailView):
     model=Post
-    template_name='blog/showblog.html'
+    template_name='blog/detail.html'
     context_object_name='showblog'
     '''
     def get_queryset(self)
@@ -47,13 +47,12 @@ class showblog(DetailView):
 class createblog(CreateView):
     model=Post
     form_class = CustomUser
-    template_name='blog/createblog.html'
+    template_name='blog/create.html'
     success_url='/posts/'
 
     
     def form_valid(self,form):
         form.instance.author=self.request.user
-
         return super().form_valid(form)
 
     
@@ -65,14 +64,14 @@ class createblog(CreateView):
 
 class updateblog(UpdateView):
     model=Post
-    template_name='blog/updateblog.html'
+    template_name='blog/update.html'
     success_url='/posts/'
     
    #queryset=post.objects.all()
 
 class deleteblog(DeleteView):
     model=Post
-    template_name='blog/deleteblog.html'
+    template_name='blog/delete.html'
     success_url=reverse_lazy('posts')
     
     #queryset=post.objects.all()

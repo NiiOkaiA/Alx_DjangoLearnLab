@@ -1,8 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,AbstractUser
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.contrib.auth.base_user import BaseUserManager
+
+
 # Create your models here.
 '''
 ROLE_CHOICES  =[
@@ -59,13 +61,13 @@ def create_UserProfile(sender, instance,created, **kwargs):
 
 
 
-
+'''
 class CustomUser(AbstractUser):
     date_of_birth=models.DateField()
     profile_photo=models.ImageField()
 
     objects=CustomUserManager()
-
+'''
 
 class CustomUserManager(BaseUserManager):
     def create_user(self,date_of_birth,profile_photo):        
@@ -77,6 +79,14 @@ class CustomUserManager(BaseUserManager):
 
     def create_superuser(self,date_of_birth,profile_photo):
          return self.create_user(date_of_birth,profile_photo)
+
+
+
+class CustomUser(AbstractUser):
+    date_of_birth=models.DateField()
+    profile_photo=models.ImageField()
+
+    objects=CustomUserManager()
 
    # objects=CustomUserManager()
        

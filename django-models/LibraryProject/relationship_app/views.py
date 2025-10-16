@@ -81,7 +81,7 @@ def can_change_book(request):
     return Book.objects.update()
 
 @permission_required('relationship_app.can_delete_book', raise_exception=True)
-def can_delete__book(request):
+def can_delete_book(request):
     return Book.objects.delete()
 
     

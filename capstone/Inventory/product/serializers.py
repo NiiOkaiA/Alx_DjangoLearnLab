@@ -7,6 +7,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model=Product
         fields='__all__'
+        permission_classes=[IsAuthenticated]
 
     def validate_Product_name(self,value):
         if not value.isalnum():

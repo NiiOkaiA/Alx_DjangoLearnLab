@@ -9,8 +9,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import user_passes_test,login_required,permission_required
 from django.db.models.signals import post_save
-# from django.contrib.auth.decorators import permission_required
 
+# from django.contrib.auth.decorators import permission_required
 # Create your views here.
 
 
