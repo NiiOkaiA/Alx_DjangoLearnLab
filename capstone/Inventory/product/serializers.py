@@ -6,7 +6,22 @@ from .models import Product
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model=Product
-        fields=['Product_id','Product_name','Cost_price','Selling_price','Quantity','Category_Id','Supplier_id','Warehouse_id','Date_added','Last_updated']
+        fields='__all__'
+
+    def validate_Product_name(self,value):
+        if not value.isalnum():
+            raise serializers.ValidationError("Title must be alphanumeric")
+
+    def validate_Quantity(self,value):
+        if value < 0:
+            raise serializers.ValidationError("Value cannot be less than 0")
+
+    def validate_Selling_Price(self,value):
+        if value <0:
+            raise serializers.ValidationError("Price has to be Positive")
+
+        
+      ''' ['Product_id','Product_name','Cost_price','Selling_price','Quantity','Category_Id','Supplier_id','Warehouse_id','Date_added','Last_updated']'''
 
 
 class WarehouseSerializer(serializers.ModelSerializer):
