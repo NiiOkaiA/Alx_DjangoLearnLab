@@ -9,7 +9,19 @@ from rest_framework import viewsets
 # Create your views here.
 
 
-class add_product(generics.CreateAPIView):
+class add_products(generics.CreateAPIView):
+    model=Product
+    serializer_class=ProductSerializer
+
+class list_product(generics.ListAPIView):
+    model=Product
+    serializer_class=ProductSerializer
+
+class update_product(generics.UpdateAPIView):
+    model=Product
+    serializer_class=ProductSerializer
+
+class delete_product(generics.DestroyAPIView):
     model=Product
     serializer_class=ProductSerializer
 
