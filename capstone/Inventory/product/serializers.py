@@ -1,13 +1,16 @@
 from rest_framework import serializers
-from .models import Product
+from .models import Product,Warehouse,WarehouseManager,Category,Supplier
+from rest_framework.permissions import IsAuthenticated
+
 
 
 #serialized models
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model=Product
-        fields='__all__'
-        permission_classes=[IsAuthenticated]
+        fields=['Product_name','Cost_price','product_description','Selling_price','Quantity','User']
+        read_only_fields=['User']
+        
 
     def validate_Product_name(self,value):
         if not value.isalnum():
@@ -21,8 +24,7 @@ class ProductSerializer(serializers.ModelSerializer):
         if value <0:
             raise serializers.ValidationError("Price has to be Positive")
 
-        
-      ''' ['Product_id','Product_name','Cost_price','Selling_price','Quantity','Category_Id','Supplier_id','Warehouse_id','Date_added','Last_updated']'''
+'''['Product_id','Product_name','Cost_price','Selling_price','Quantity','Category_Id','Supplier_id','Warehouse_id','Date_added','Last_updated']'''
 
 
 class WarehouseSerializer(serializers.ModelSerializer):

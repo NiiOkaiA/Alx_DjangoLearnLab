@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-
+from django.conf import settings
 # Create your models here.
 
 class Category(models.Model):
@@ -32,5 +32,5 @@ class Product(models.Model):
     Category_Id=models.ForeignKey(Category,on_delete=models.CASCADE,related_name='category')
     Supplier_Id=models.ForeignKey(Supplier,on_delete=models.CASCADE,related_name='supplier')
     Warehouse_Id=models.ForeignKey(Warehouse,on_delete=models.CASCADE,related_name='warehouse')
-
+    User=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='user',default='1')
 
