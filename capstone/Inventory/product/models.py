@@ -1,7 +1,12 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
+from django.dispatch import receiver
 # Create your models here.
+
+class itemlog(models.Model):
+    modification=models.CharField(max_length=30)
+    time= models.DateTime(auto_add_now=True)
 
 class Category(models.Model):
     category_id=models.IntegerField(primary_key=True)

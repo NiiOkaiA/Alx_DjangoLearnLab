@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model=Product
-        fields=['Product_name','Cost_price','product_description','Selling_price','Quantity','User']
+        fields=['Product_name','Cost_price','product_description','Selling_price','Quantity','User','Category_Id']
         read_only_fields=['User']
         
 

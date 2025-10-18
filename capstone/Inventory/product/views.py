@@ -19,17 +19,42 @@ class list_product(generics.ListAPIView):
     model=Product
     serializer_class=ProductSerializer
     queryset=Product.objects.all()
+    permission_classes=[IsAuthenticated,IsOwner]
 
 class update_product(generics.UpdateAPIView):
     model=Product
     serializer_class=ProductSerializer
     queryset=Product.objects.all()
+    permission_classes=[IsAuthenticated,IsOwner]
 
 class delete_product(generics.DestroyAPIView):
     model=Product
     serializer_class=ProductSerializer
     queryset=Product.objects.all()
-    permission_classes=[IsAuthenticated]
+    permission_classes=[IsAuthenticated,IsOwner]
+
+class all_inventory(generics.ListAPIView):
+    model=Product
+    serializer_class=ProductSerializer
+    queryset=Product.objects.values_list('Product_name','Quantity')
+    
+class category(generics.ListAPIView):
+    model =Product
+    serializer_class =ProductSerializer
+    queryset=Product.objects.filter(Category_Id=0)
+
+
+class price_range(generics.ListAPIView):
+    model =Product
+    serializer_class=ProductSerializer
+    queryset=Product.objects.filter(Selling_price__range=[3,9])
+
+
+class low_stock(generics.ListAPIView):
+    model=Product
+    serializer_class=ProductSerializer
+    queryset=Product.objects.filter(Quantity__lt=20)
+
 
 #    def get_queryset(self):
  #       return Product.objects.create()
