@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zr2t3b%dzc4dw*i9d688t&yq9wh_6p-wv-2h_asr37m0i$nuco'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['NiiOkaikoiAmarfio.pythonanywhere.com']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'product',
     'users',
     'rest_framework',
+    'rest_framework.authtoken'
     
 ]
 
