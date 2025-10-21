@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.utils import timezone
 
 
 
@@ -12,4 +12,6 @@ class  Post(models.Model):
     content=models.TextField()
     published_date=models.DateTimeField(auto_now_add=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE,null=False,blank=False)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
     
