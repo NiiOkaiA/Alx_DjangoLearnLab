@@ -14,15 +14,15 @@ class itemlog(models.Model):
 
 
 class Category(models.Model):
-    category_id=models.IntegerField(primary_key=True)
+    category_id=models.AutoField(primary_key=True)
     category_name=models.CharField(max_length=50)
 
 class Supplier(models.Model):
-    supplier_id=models.IntegerField(primary_key=True)
+    supplier_id=models.AutoField(primary_key=True)
     supplier_name=models.CharField(max_length=50)
 
 class WarehouseManager(models.Model):
-    Manager_id=models.IntegerField(primary_key=True)
+    Manager_id=models.AutoField(primary_key=True)
     Manager_name=models.CharField(max_length=60)
 
 class Warehouse(models.Model):
