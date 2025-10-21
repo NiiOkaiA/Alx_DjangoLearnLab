@@ -7,7 +7,7 @@
   <ul>
     {% for blog in listblogs %}
     <li>{{ blog.title }} </li>
-    <li>{{blog.content|truncatewords:30}}</li>
+    <li>{{blog.content | truncatewords:40}}</li>
     {% empty %}
       <li>No posts available.</li>
     {% endfor %}
