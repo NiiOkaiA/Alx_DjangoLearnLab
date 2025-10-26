@@ -1,0 +1,64 @@
+About Inventory API
+
+OVERVIEW
+Inventory API is an API geared towards the creation and management of inventory items. It serves the needs of all Industries who manage inventory in one form or another.
+
+Structure
+Inventory API has within it two main modules: The product module and the user module. The product module allows you to create products of all forms you can then manage them within the API. The user module allows the creation of various users who can then use the product module
+
+
+Implementation
+
+THE USER MODULE
+
+USER CREATION
+The user module first allows for the creation of new users using the URL pathway /users/new/ one can create a new user with
+username : naa
+email    :naa@email.com
+password :***************
+
+
+
+USER LIST
+The user module also allows for the viewing of the list of users within the app using the url pathway /users/list/ this provides the list of users within the app. This lists the User Id, the name of the user and the email of the user
+
+
+USER UPDATE
+The module also allows for the updating of user information via the pathway /users/update/<int:pk>. With this pathway, you could update the information you provided within the creation stage of the app. This can be done by providing the user Id of the said user
+
+USER DELETION
+The module allows for the deletion of users also. Using the /users/delete/<int:pk> pathway, a user can be deleted by providing the user Id of the said user.
+
+
+
+
+
+
+THE PRODUCT MODULE
+
+PRODUCT CREATION
+After creating a new user, The module allows you to create products. One can create a product using this format on the url /product/new/
+Product name        :soap
+Cost Price          :3
+Selling Price       :6
+Product Description :This is a product for taking baths
+Quantity            :44
+
+This creates a new product
+
+
+LIST PRODUCTS
+This module allows the user to list all the products available on the url /products/list/
+
+
+UPDATE PRODUCT
+This module allows the user to update the product's features using the product's primary key with the format /product/update/<int:pk>/. With the url /product/update/3/, the user can update the product with the primary key 3.
+
+DELETE PRODUCT
+This module allows the user to delete the product using the primary key with the url /product/delete/<int:pk>/. With the url /product/delete/4/. the user can delete the the product with the primary key 4.
+
+LIST QUANTITIES
+This module allows the user to list the quantity of a particular product using the url /product/listquantity/(product_name)/ where product name is the name of the specific product in question.
+
+FILTERING 
+This module allows you to filter products based on their category Id using the url /product/filtercategory/(product_name)/ where product_name is the name of the specific product in question
